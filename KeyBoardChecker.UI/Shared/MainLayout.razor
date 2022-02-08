@@ -1,0 +1,19 @@
+﻿@inherits LayoutComponentBase
+
+<button class="btn btn-outline-secondary" @onclick="Update"></button>
+<input class="input" @bind="NewValue"/>
+
+<div class="page">
+   <ModalWindow Text=@CurrentValue> </ModalWindow> 
+</div>
+
+@code{
+    private string CurrentValue { get; set; } = "text";
+    private string NewValue { get; set; }
+
+    private void Update()
+    {
+        CurrentValue = NewValue;
+    }
+
+}
