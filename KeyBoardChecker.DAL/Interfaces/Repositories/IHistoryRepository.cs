@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KeyBoardChecker.DAL.Interfaces.Repositories
 {
     public interface IHistoryRepository
     {
+        public void Add(DateTime dateTime, string value);
+        
 
     }
 }

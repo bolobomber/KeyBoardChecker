@@ -8,7 +8,6 @@ namespace KeyBoardChecker.UI.Components
 {
     public partial class ModalWindow
     {   
-        [Parameter]
-        public string Text { get; set; }
+        
     }
 }
