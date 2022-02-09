@@ -1,0 +1,6 @@
+﻿<div id="sound-button-@Pad.KeyValue-@Pad.SoundName" class="key" @onclick="OnButtonClick">
+    <h4>@Pad.KeyValue[3]</h4>
+    
+    <h5>@Pad.SoundName.Substring(0, Pad.SoundName.IndexOf("."))</h5>
+    <audio id="@Pad.KeyValue" src="/sounds/@Pad.SoundName"></audio>
+</div>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KeyBoardChecker.DAL.Interfaces.Repositories;
+using KeyBoardChecker.DAL.Models;
 
 namespace KeyBoardChecker.DAL.Repositories
 {
@@ -16,5 +17,17 @@ namespace KeyBoardChecker.DAL.Repositories
             this.context = context;
         }
         
+        
+
+        public void Add(DateTime dateTime, string value)
+        {
+            context.Add(new HistoryLog()
+            {
+                DateTime = dateTime,
+                Value = value
+            });
+            context.SaveChanges();
+        }
+
     }
 }
