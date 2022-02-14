@@ -16,8 +16,6 @@ namespace KeyBoardChecker.DAL.Repositories
         {
             this.context = context;
         }
-        
-        
 
         public void Add(DateTime dateTime, string value)
         {
@@ -29,5 +27,23 @@ namespace KeyBoardChecker.DAL.Repositories
             context.SaveChanges();
         }
 
+        public void Clear()
+        {
+            foreach (var item in context.HistoryLogs)
+            {
+                context.Remove(item);
+            }
+            context.SaveChanges();
+        }
+
+        public void DeleteElement(string value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<HistoryLog> GetAllHistoryLog()
+        {
+            return context.HistoryLogs.Select(i => i).ToList();
+        }
     }
 }

@@ -1,0 +1,65 @@
+﻿
+<div class="container">
+    <div class="row py-5">
+        <div class="col">
+            <RadzenCard>
+
+                <RadzenDataList WrapItems="true" AllowPaging="true" Data="@historyLogs" TItem="KeyBoardChecker.DAL.Models.HistoryLog" PageSize="10" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true">
+                    <Template Context="historyLog">
+                        <RadzenCard Style="width: 100%; padding: 0; overflow: hidden;">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 p-3 product-title">
+                                        @(historyLog.Id)
+                                    </div>
+                                    <div class="col-lg-7 p-3">
+                                        <div class="row d-flex">
+                                            <div class="col-md-6 col-lg-3">
+                                                <p class="mb-sm-2 mb-lg-0">@(historyLog.DateTime)</p>
+                                            </div>
+                                            <div class="col-md-6 col-lg-8">
+                                                <p class="mb-sm-2 mb-lg-0">@(historyLog.Value)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 p-4">
+                                        <RadzenButton Text="delete" Class="w-100" />
+                                    </div>
+                                </div>
+                            </div>
+                        </RadzenCard>
+                    </Template>
+                </RadzenDataList>
+
+            </RadzenCard>
+        </div>
+    </div>
+</div>
+
+<style>
+    .product-title {
+        min-height: 72px;
+        color: #da0074;
+        background-color: rgba(255, 41, 155, .1);
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 20px;
+        letter-spacing: -0.02em;
+    }
+
+    .price-badge {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 20px;
+        padding: 8px;
+    }
+</style>
+
+
+<div class="" @onclick="OnClickButton">
+    <button class="btn btn-danger" @onclick="() => Modal.Open()">Clear History</button>
+</div>
+
+<ClearHistoryModal @ref="Modal" />
+
+

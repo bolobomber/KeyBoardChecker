@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KeyBoardChecker.BLL.Interfaces;
 using KeyBoardChecker.DAL.Interfaces.Repositories;
+using KeyBoardChecker.DAL.Models;
 
 namespace KeyBoardChecker.BLL.Services
 {
@@ -22,6 +23,16 @@ namespace KeyBoardChecker.BLL.Services
         {
             key = "Was pressed Key " + key;
             historyRepository.Add(DateTime.Now, key);
+        }
+
+        public void ClearAllHistoryLog()
+        {
+            historyRepository.Clear();
+        }
+
+        public List<HistoryLog> GetAllHistoryLog()
+        {
+            return historyRepository.GetAllHistoryLog();
         }
     }
 }
