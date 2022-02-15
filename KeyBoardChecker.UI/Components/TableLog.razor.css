@@ -1,0 +1,7 @@
+﻿.AllHistoryDeleteButton {
+    display: flex;
+    justify-content: end;
+}
+.delButton {
+    display: flex;
+}

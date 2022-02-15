@@ -12,12 +12,13 @@ namespace KeyBoardChecker.BLL.Services
     public class HistoryLogService : IHistoryLogService
     {
         private readonly IHistoryRepository historyRepository;
+
         public HistoryLogService(IHistoryRepository historyRepository)
         {
             this.historyRepository = historyRepository;
         }
 
-        
+
 
         public void AddHistoryLog(string key)
         {
@@ -33,6 +34,11 @@ namespace KeyBoardChecker.BLL.Services
         public List<HistoryLog> GetAllHistoryLog()
         {
             return historyRepository.GetAllHistoryLog();
+        }
+
+        public void DeleteElement(int value)
+        {
+            historyRepository.DeleteElement(value);
         }
     }
 }

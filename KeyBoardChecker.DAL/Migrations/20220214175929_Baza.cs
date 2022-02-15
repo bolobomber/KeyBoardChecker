@@ -1,9 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
+
 namespace KeyBoardChecker.DAL.Migrations
 {
-    public partial class baza3 : Migration
+    public partial class Baza : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

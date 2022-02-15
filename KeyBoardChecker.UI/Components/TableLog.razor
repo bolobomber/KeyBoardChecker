@@ -4,12 +4,12 @@
         <div class="col">
             <RadzenCard>
 
-                <RadzenDataList WrapItems="true" AllowPaging="true" Data="@historyLogs" TItem="KeyBoardChecker.DAL.Models.HistoryLog" PageSize="10" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true">
+                <RadzenDataList WrapItems="true" AllowPaging="true" Data="@historyLogs" TItem="KeyBoardChecker.DAL.Models.HistoryLog" PageSize="5" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true">
                     <Template Context="historyLog">
-                        <RadzenCard Style="width: 100%; padding: 0; overflow: hidden;">
+                        <RadzenCard Style="width: 100%; padding: 0; margin: 0; overflow: hidden;">
                             <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-3 p-3 product-title">
+                                <div class="row justify-content-center align-items-center" >
+                                    <div class="col-lg-3 align-items-center product-title">
                                         @(historyLog.Id)
                                     </div>
                                     <div class="col-lg-7 p-3">
@@ -22,14 +22,20 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2 p-4">
-                                        <RadzenButton Text="delete" Class="w-100" />
+                                    <div class="col-lg-2 p-1" @onclick="() => OnClickDelButton(historyLog.Id)">
+                                        <button class="btn btn-danger">delete</button>
                                     </div>
                                 </div>
                             </div>
                         </RadzenCard>
                     </Template>
                 </RadzenDataList>
+
+                <div class="AllHistoryDeleteButton" @onclick="OnClickButton">
+                    <button class="btn btn-danger" @onclick="() => Modal.Open()">Clear History</button>
+                </div>
+
+                <ClearHistoryModal @ref="Modal" />
 
             </RadzenCard>
         </div>
@@ -56,10 +62,6 @@
 </style>
 
 
-<div class="" @onclick="OnClickButton">
-    <button class="btn btn-danger" @onclick="() => Modal.Open()">Clear History</button>
-</div>
 
-<ClearHistoryModal @ref="Modal" />
 
 

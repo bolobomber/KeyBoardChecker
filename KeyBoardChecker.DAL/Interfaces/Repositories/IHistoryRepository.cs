@@ -11,7 +11,7 @@ namespace KeyBoardChecker.DAL.Interfaces.Repositories
     {
         public void Add(DateTime dateTime, string value);
         public void Clear();
-        public void DeleteElement(string value);
+        public void DeleteElement(int value);
         public List<HistoryLog> GetAllHistoryLog();
     }
 }

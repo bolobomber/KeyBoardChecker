@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using KeyBoardChecker.DAL.Interfaces.Repositories;
 using KeyBoardChecker.DAL.Models;
@@ -36,9 +37,10 @@ namespace KeyBoardChecker.DAL.Repositories
             context.SaveChanges();
         }
 
-        public void DeleteElement(string value)
+        public void DeleteElement(int value)
         {
-            throw new NotImplementedException();
+            context.HistoryLogs.Remove(context.HistoryLogs.FirstOrDefault(i => i.Id == value));
+            context.SaveChanges();
         }
 
         public List<HistoryLog> GetAllHistoryLog()

@@ -12,5 +12,8 @@ namespace KeyBoardChecker.BLL.Interfaces
         public void AddHistoryLog(string key);
         public void ClearAllHistoryLog();
         public List<HistoryLog> GetAllHistoryLog();
+
+        public void DeleteElement(int value);
+
     }
 }

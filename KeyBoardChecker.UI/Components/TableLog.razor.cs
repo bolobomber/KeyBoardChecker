@@ -18,12 +18,19 @@ namespace KeyBoardChecker.UI.Components
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            historyLogs = HistoryLogService.GetAllHistoryLog().AsEnumerable();
+            historyLogs = HistoryLogService.GetAllHistoryLog().AsEnumerable().Reverse();
         }
         public void OnClickButton()
         {
             HistoryLogService.ClearAllHistoryLog();
             historyLogs = new   List<HistoryLog>();
         }
+
+        public void OnClickDelButton(int value)
+        {   
+            HistoryLogService.DeleteElement(value);
+            historyLogs = HistoryLogService.GetAllHistoryLog().AsEnumerable().Reverse();
+        }
+
     }
 }
