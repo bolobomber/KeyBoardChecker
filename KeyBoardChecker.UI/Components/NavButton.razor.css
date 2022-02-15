@@ -1,6 +1,6 @@
 ﻿
 .nav-btn {
-    border: .3rem solid #ffc600;
+    border: .2rem solid #ffc600;
     border-radius: .5rem;
     font-size: 1.5rem;
     padding: 1rem .5rem;
@@ -11,7 +11,7 @@
     background: rgba(0,0,0,0.5);
     text-shadow: 0 0 .5rem black;
     margin-left: 1rem;
-    margin-top: 1rem;
+    margin-top: .5rem;
     padding: 0;
 }
     .nav-btn:hover {

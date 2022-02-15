@@ -12,6 +12,7 @@ namespace KeyBoardChecker.UI.Components;
 public partial class SoundButtonsArea
 {
     protected ElementReference referal;
+    public string ClassName { get; set; }
 
     [Inject] 
     private IHistoryLogService HistoryLogService { get; set; }
@@ -21,15 +22,15 @@ public partial class SoundButtonsArea
 
     public List<Pad> pads = new()
     {
-        new("KeyA", "kick.wav"),
-        new("KeyS", "clap.wav"),
-        new("KeyD", "hihat.wav"),
-        new("KeyF", "boom.wav"),
-        new("KeyG", "ride.wav"),
-        new("KeyH", "snare.wav"),
-        new("KeyJ", "tink.wav"),
+        new("KeyA", "clap.wav"),
+        new("KeyS", "hihat.wav"),
+        new("KeyD", "kick.wav"),
+        new("KeyF", "openhat.wav"),
+        new("KeyG", "boom.wav"),
+        new("KeyH", "ride.wav"),
+        new("KeyJ", "snare.wav"),
         new("KeyK", "tom.wav"),
-        new("KeyL", "frog_chorus.mp3")
+        new("KeyL", "tink.wav")
     };
 
 
@@ -40,6 +41,7 @@ public partial class SoundButtonsArea
 
     public async void OnKeyPressed(KeyboardEventArgs args)
     {
+        ClassName = ".key:active";
         var pad = pads.FirstOrDefault(x => x.KeyValue == args.Code);
         if (pad != null)
         {

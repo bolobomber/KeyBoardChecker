@@ -1,29 +1,27 @@
-﻿
+﻿@using KeyBoardChecker.DAL.Models
 <div class="container">
-    <div class="row py-5">
+    <div class="row py-0 ml-4">
         <div class="col">
-            <RadzenCard>
+            <RadzenCard Style="background-color: rgba(0,0,0,0.6); border-radius: .5rem">
 
-                <RadzenDataList WrapItems="true" AllowPaging="true" Data="@historyLogs" TItem="KeyBoardChecker.DAL.Models.HistoryLog" PageSize="5" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true">
+                <RadzenDataList WrapItems="true" AllowPaging="true" Data="@historyLogs" TItem="HistoryLog" PageSize="5" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true">
                     <Template Context="historyLog">
-                        <RadzenCard Style="width: 100%; padding: 0; margin: 0; overflow: hidden;">
-                            <div class="container">
-                                <div class="row justify-content-center align-items-center" >
-                                    <div class="col-lg-3 align-items-center product-title">
+                        <RadzenCard Style="margin: 5px; overflow: hidden; padding: 0; width: 100%;background-color: rgba(0,0,0,0.5);border: .15rem solid whitesmoke; border-radius: .5rem;">
+                            <div class="container  ">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-1 text-primary">
                                         @(historyLog.Id)
                                     </div>
-                                    <div class="col-lg-7 p-3">
-                                        <div class="row d-flex">
-                                            <div class="col-md-6 col-lg-3">
-                                                <p class="mb-sm-2 mb-lg-0">@(historyLog.DateTime)</p>
-                                            </div>
-                                            <div class="col-md-6 col-lg-8">
-                                                <p class="mb-sm-2 mb-lg-0">@(historyLog.Value)</p>
-                                            </div>
-                                        </div>
+
+                                    <div class="col-sm-3 history-date-timet">
+                                        <p class="text-light">@(historyLog.DateTime)</p>
                                     </div>
-                                    <div class="col-lg-2 p-1" @onclick="() => OnClickDelButton(historyLog.Id)">
-                                        <button class="btn btn-danger">delete</button>
+                                    <div class="col-sm-6 history-value">
+                                        <p class="text-light">@(historyLog.Value)</p>
+                                    </div>
+
+                                    <div class="col history-del-btn" @onclick="() => OnClickDelButton(historyLog.Id)">
+                                        <button class="btn btn-outline-warning">delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -32,10 +30,10 @@
                 </RadzenDataList>
 
                 <div class="AllHistoryDeleteButton" @onclick="OnClickButton">
-                    <button class="btn btn-danger" @onclick="() => Modal.Open()">Clear History</button>
+                    <button class="btn btn-danger btn-lg" @onclick="() => Modal.Open()">Clear History</button>
                 </div>
 
-                <ClearHistoryModal @ref="Modal" />
+                <ClearHistoryModal @ref="Modal"/>
 
             </RadzenCard>
         </div>
@@ -44,13 +42,13 @@
 
 <style>
     .product-title {
-        min-height: 72px;
-        color: #da0074;
         background-color: rgba(255, 41, 155, .1);
+        color: #da0074;
         font-size: 20px;
         font-weight: bold;
-        line-height: 20px;
         letter-spacing: -0.02em;
+        line-height: 20px;
+        min-height: 72px;
     }
 
     .price-badge {
@@ -60,8 +58,3 @@
         padding: 8px;
     }
 </style>
-
-
-
-
-

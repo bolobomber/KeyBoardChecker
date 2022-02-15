@@ -1,7 +1,7 @@
-﻿.AllHistoryDeleteButton {
+﻿
+
+.AllHistoryDeleteButton {
     display: flex;
+    padding-top: 10px; 
     justify-content: end;
-}
-.delButton {
-    display: flex;
 }

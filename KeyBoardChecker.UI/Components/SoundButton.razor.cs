@@ -18,7 +18,7 @@ namespace KeyBoardChecker.UI.Components
         [Inject]
         public ISoundPlayerService SoundPlayerService { get; set; }
         public void OnButtonClick()
-        {
+        {   
             if (Pad == null)
             {
                 return;
