@@ -1,0 +1,60 @@
+﻿@using KeyBoardChecker.DAL.Models
+<div class="container">
+    <div class="row py-0 ml-4">
+        <div class="col">
+            <RadzenCard Style="background-color: rgba(0,0,0,0.6); border-radius: .5rem">
+
+                <RadzenDataList WrapItems="true" AllowPaging="true" Data="@historyLogs" TItem="HistoryLog" PageSize="5" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true">
+                    <Template Context="historyLog">
+                        <RadzenCard Style="margin: 5px; overflow: hidden; padding: 0; width: 100%;background-color: rgba(0,0,0,0.5);border: .15rem solid whitesmoke; border-radius: .5rem;">
+                            <div class="container  ">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-1 text-primary">
+                                        @(historyLog.Id)
+                                    </div>
+
+                                    <div class="col-sm-3 history-date-timet">
+                                        <p class="text-light">@(historyLog.DateTime)</p>
+                                    </div>
+                                    <div class="col-sm-6 history-value">
+                                        <p class="text-light">@(historyLog.Value)</p>
+                                    </div>
+
+                                    <div class="col history-del-btn" @onclick="() => OnClickDelButton(historyLog.Id)">
+                                        <button class="btn btn-outline-warning">delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </RadzenCard>
+                    </Template>
+                </RadzenDataList>
+
+                <div class="AllHistoryDeleteButton" @onclick="OnClickButton">
+                    <button class="btn btn-danger btn-lg" @onclick="() => Modal.Open()">Clear History</button>
+                </div>
+
+                <ClearHistoryModal @ref="Modal"/>
+
+            </RadzenCard>
+        </div>
+    </div>
+</div>
+
+<style>
+    .product-title {
+        background-color: rgba(255, 41, 155, .1);
+        color: #da0074;
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: -0.02em;
+        line-height: 20px;
+        min-height: 72px;
+    }
+
+    .price-badge {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 20px;
+        padding: 8px;
+    }
+</style>

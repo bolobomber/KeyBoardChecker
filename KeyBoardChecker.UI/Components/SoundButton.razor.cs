@@ -11,20 +11,21 @@ namespace KeyBoardChecker.UI.Components
 {
     public partial class SoundButton
     {
-        [Inject] 
+        [Inject]
         private IHistoryLogService HistoryLogService { get; set; }
         [Parameter]
         public Pad Pad { get; set; }
         [Inject]
         public ISoundPlayerService SoundPlayerService { get; set; }
         public void OnButtonClick()
-        {
+        {   
             if (Pad == null)
             {
                 return;
             }
             SoundPlayerService.Play($"/sounds/{Pad.SoundName}", $"{Pad.KeyValue}");
             HistoryLogService.AddHistoryLog("Mouse_left_click");
+
         }
 
     }
